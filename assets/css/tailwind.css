@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: 22.5 84.1% 49.2%;
+    --background: 150 6.67% 5.88%;
+    --foreground: 54 100% 94.12%;
+    --muted: 70 4.69% 25.1%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+  }
+}

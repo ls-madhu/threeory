@@ -1,3 +1,3 @@
 <template>
-  <NuxtPage />
+  <h1>THREEORY</h1>
 </template>
