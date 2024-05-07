@@ -5,12 +5,12 @@
 @layer base {
   :root {
     --accent: 23 84% 49%;
-    --background: 150 7% 6%;
+    --background: 0 0% 0%;
     --foreground: 54 100% 94%;
-    --muted: 70 4% 12%;
+    --muted: 0 0% 12%;
   }
 
   body {
-    @apply bg-background text-foreground font-sans min-h-screen;
+    @apply bg-background text-foreground font-sans min-h-screen select-none;
   }
 }
