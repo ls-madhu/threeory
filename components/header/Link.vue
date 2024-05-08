@@ -30,7 +30,7 @@ onUnmounted(() => {});
 
 <template>
   <button
-    class="relative inline-block text-sm font-bold uppercase overflow-hidden header--link"
+    class="relative inline-block text-sm font-bold uppercase overflow-hidden focus-visible:border-accent header--link"
     :data-replace="title.toUpperCase()"
     v-on:click="onClick"
   >

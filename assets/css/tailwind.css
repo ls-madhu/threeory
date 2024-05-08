@@ -7,6 +7,7 @@
     --accent: 23 84% 49%;
     --background: 0 0% 0%;
     --foreground: 54 100% 94%;
+    --foreground-secondary: 210 10% 40%;
     --muted: 0 0% 12%;
   }
 
@@ -33,5 +34,21 @@
 
   .lenis.lenis-scrolling iframe {
     pointer-events: none;
+  }
+
+  a {
+    @apply focus-visible:outline focus-visible:outline-accent focus-visible:outline-offset-2;
+  }
+
+  button {
+    @apply border border-background transition-colors focus-visible:outline-none focus-visible:border focus-visible:border-foreground;
+  }
+
+  input {
+    @apply bg-background p-4 border border-muted transition-colors focus-visible:outline-none focus-visible:border focus-visible:border-accent;
+  }
+
+  textarea {
+    @apply bg-background p-4 border border-muted transition-colors resize-none focus-visible:outline-none focus-visible:border focus-visible:border-accent;
   }
 }

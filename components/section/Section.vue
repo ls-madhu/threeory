@@ -2,7 +2,7 @@
   <section class="w-full flex flex-col section" v-bind="$attrs">
     <div class="border-y border-muted" v-if="!!$slots.heading">
       <h2
-        class="w-full max-w-screen-xl mx-auto outlined-text text-3xl font-bold text-center text-background tracking-wide uppercase p-6 border-x border-muted sm:text-6xl md:text-7xl lg:text-8xl md:text-left"
+        class="w-full max-w-screen-xl mx-auto outlined-text text-3xl font-bold text-center text-background tracking-wide uppercase p-6 border-x border-muted border-l-accent sm:text-6xl md:text-7xl lg:text-8xl md:text-left"
       >
         <slot name="heading" />
       </h2>

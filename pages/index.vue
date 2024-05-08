@@ -122,6 +122,62 @@ onMounted(() => {
   </Section>
   <Section id="contact">
     <template #heading>Contact Us</template>
+    <div class="bg-muted">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[1px]">
+        <div class="bg-background p-4">
+          <p class="text-center font-bold sm:text-left sm:text-lg">
+            For inquiries, wholesale ticket purchases, and accessibility
+            arrangements, please reach out to us at :
+          </p>
+          <div class="grid grid-cols-2 gap-x-4 gap-y-8 px-4 py-8">
+            <ContactInfoItem icon="fe:phone" name="Phone">
+              <a href="tel:+1234567890">+(123) 456-7890</a></ContactInfoItem
+            >
+            <ContactInfoItem icon="heroicons:envelope-solid" name="Email"
+              ><a href="mailto:help@threeory.com"
+                >help@threeory.com</a
+              ></ContactInfoItem
+            >
+            <ContactInfoItem
+              icon="fluent:location-ripple-16-filled"
+              name="Location"
+              >Hyderabad</ContactInfoItem
+            >
+            <ContactInfoItem icon="bxl:instagram-alt" name="Socials">
+              <div class="flex gap-x-4">
+                <NuxtLink
+                  :external="true"
+                  target="_blank"
+                  to="https://www.instagram.com/threeoryband"
+                  >Instagram</NuxtLink
+                >
+                <NuxtLink
+                  :external="true"
+                  target="_blank"
+                  to="https://www.youtube.com/@threeoryband"
+                  >Youtube</NuxtLink
+                >
+              </div>
+            </ContactInfoItem>
+          </div>
+        </div>
+        <form
+          class="flex flex-col gap-y-2 bg-background font-sans-secondary text-sm font-medium p-4"
+        >
+          <ContactInput placeholder="Name" type="text" />
+          <ContactInput placeholder="Email" type="email" />
+          <ContactInput placeholder="Phone" type="tel" />
+          <textarea placeholder="Message" rows="5" />
+          <Button>Submit</Button>
+        </form>
+      </div>
+    </div>
   </Section>
+  <button
+    aria-label="WhatsApp"
+    class="fixed right-0 bottom-0 m-8 border-transparent"
+  >
+    <Icon aria-hidden name="logos:whatsapp-icon" size="40" />
+  </button>
   <Footer />
 </template>
