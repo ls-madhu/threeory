@@ -21,20 +21,15 @@ defineProps<Props>();
 
 <style scoped>
 .header--link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  left: 0;
+  @apply content-[''] absolute w-full left-0;
 }
 
 .header--link::after {
+  @apply h-full top-0 text-accent;
   content: attr(data-replace);
-  height: 100%;
-  top: 0;
   transform-origin: 100% 50%;
   transform: translate3d(0, 200%, 0);
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
-  color: hsl(var(--accent));
 }
 
 .header--link:hover::after {
