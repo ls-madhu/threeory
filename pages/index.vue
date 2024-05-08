@@ -1,3 +1,26 @@
+<script lang="ts" setup>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
+
+const initSmoothScroll = () => {
+  const lenis = new Lenis();
+
+  lenis.on('scroll', ScrollTrigger.update);
+
+  const scrollFn = (time: number) => {
+    lenis.raf(time);
+    requestAnimationFrame(scrollFn);
+  };
+
+  requestAnimationFrame(scrollFn);
+};
+
+onMounted(() => {
+  initSmoothScroll();
+});
+</script>
+
 <template>
   <Header />
   <Section id="home"></Section>

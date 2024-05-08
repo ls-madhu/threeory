@@ -17,10 +17,6 @@
 </template>
 
 <style scoped>
-.section::before {
-  @apply content-[''] block w-full max-w-screen-xl pt-20 mx-auto border-x border-muted;
-}
-
 .outlined-text {
   text-shadow: 1px 1px 0 hsl(var(--accent)), -1px 1px 0 hsl(var(--accent)),
     -1px -1px 0 hsl(var(--accent)), 1px -1px 0 hsl(var(--accent));

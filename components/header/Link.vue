@@ -1,22 +1,41 @@
 <script lang="ts" setup>
-import type { RouteLocationRaw } from 'vue-router';
+import Lenis from 'lenis';
 
 type Props = {
-  to: RouteLocationRaw;
+  to: string;
   title: string;
 };
 
-defineProps<Props>();
+const { to } = defineProps<Props>();
+
+const onClick = (e: PointerEvent) => {
+  e.preventDefault();
+
+  const lenis = new Lenis();
+
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  lenis.scrollTo(to, {
+    offset: -80,
+  });
+};
+
+onUnmounted(() => {});
 </script>
 
 <template>
-  <NuxtLink
+  <button
     class="relative inline-block text-sm font-bold uppercase overflow-hidden header--link"
     :data-replace="title.toUpperCase()"
-    :to="to"
+    v-on:click="onClick"
   >
     <span class="inline-block">{{ title }}</span>
-  </NuxtLink>
+  </button>
 </template>
 
 <style scoped>
