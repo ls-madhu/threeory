@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         sans: ['MuseoModerno'],
       },
+      screens: {
+        xs: '500px',
+      },
     },
   },
   plugins: [],
