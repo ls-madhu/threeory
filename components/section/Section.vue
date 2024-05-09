@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+type Props = {
+  innerClass?: string;
+};
+
+defineProps<Props>();
+</script>
+
 <template>
   <section class="w-full flex flex-col section" v-bind="$attrs">
     <div class="border-y border-muted" v-if="!!$slots.heading">
@@ -7,7 +15,12 @@
         <slot name="heading" />
       </h2>
     </div>
-    <div class="grow w-full max-w-screen-xl border-x border-muted mx-auto">
+    <div
+      :class="[
+        'grow w-full max-w-screen-xl border-x border-muted mx-auto',
+        innerClass,
+      ]"
+    >
       <slot />
     </div>
   </section>

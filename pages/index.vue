@@ -96,7 +96,16 @@ onMounted(() => {
 
 <template>
   <Header />
-  <Section id="home"></Section>
+  <Section class="h-dvh overflow-hidden" id="home" inner-class="relative">
+    <NuxtImg
+      alt=""
+      class="w-full h-full object-cover"
+      src="/images/hero-bg.webp"
+    />
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent to-background"
+    />
+  </Section>
   <Section id="artists">
     <template #heading>Featured Artists</template>
   </Section>
