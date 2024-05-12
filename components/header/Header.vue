@@ -7,8 +7,8 @@
     >
       <nav class="hidden md:flex justify-evenly items-center gap-4 grow">
         <HeaderLink title="Home" to="#home" />
-        <HeaderLink title="Artists" to="#artists" />
         <HeaderLink title="Events" to="#events" />
+        <HeaderLink title="Artists" to="#artists" />
       </nav>
       <NuxtLink
         class="flex justify-center items-center self-start size-24 sm:size-28 md:size-36 lg:size-48 md:relative md:-top-2 lg:-top-5 rounded-full"

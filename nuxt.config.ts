@@ -20,5 +20,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     'nuxt-icon',
+    'radix-vue/nuxt',
   ],
 });

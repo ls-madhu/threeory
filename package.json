@@ -15,8 +15,10 @@
     "gsap": "^3.12.5",
     "lenis": "^1.0.45",
     "nuxt": "^3.11.2",
+    "radix-vue": "^1.7.4",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-simple-calendar": "^7.1.0"
   },
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",

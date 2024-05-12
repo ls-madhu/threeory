@@ -2,9 +2,92 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import DoubleImageEffect from '~/utils/double-image-effect';
 
 const gsapWrapper = ref();
 let ctx: gsap.Context;
+
+const artists = [
+  {
+    name: 'Mark Talur',
+    image: '/images/artists/mark-talur.jpeg',
+    role: 'Keyboard',
+  },
+  {
+    name: 'Datta Sai Prasa',
+    image: '/images/artists/datta-sai-prasa.jpeg',
+    role: 'Violin',
+  },
+  {
+    name: 'Tarun Vishal',
+    image: '/images/artists/tarun-vishal.jpeg',
+    role: 'Drums',
+  },
+  { name: 'Imtiakum', image: '/images/artists/imtiakum.jpeg', role: 'Bass' },
+  {
+    name: 'Sentilong Ao',
+    image: '/images/artists/sentilong.jpeg',
+    role: 'Guitar',
+  },
+  {
+    name: 'Syntyche Mongro',
+    image: '/images/artists/syntyche-mongro.jpeg',
+    role: 'Female Vocalist',
+  },
+  {
+    name: 'Akhileshwar Chennu',
+    image: '/images/artists/akhileshwar-chennu.jpeg',
+    role: 'Male Vocalist',
+  },
+  {
+    name: 'Irfan Ahmed Khan',
+    image: '/images/artists/irfan-ahmed-khan.jpeg',
+    role: 'Sitar',
+  },
+  {
+    name: 'Pavan Kumar MS',
+    image: '/images/artists/pavan-kumar.jpeg',
+    role: 'Tabala',
+  },
+];
+
+const events = [
+  {
+    date: '10th May 2024',
+    name: 'Lord Of The Drinks',
+    location: 'Hyderabad',
+  },
+  {
+    date: '19th May 2024',
+    name: 'Akan Brewing Co.',
+    location: 'Delhi',
+  },
+  {
+    date: '26th May 2024',
+    name: 'One Golf',
+    location: 'Lucknow',
+  },
+  {
+    date: '6th June 2024',
+    name: 'Pablo The Art Lounge Cafe',
+    location: 'Hyderabad',
+  },
+  {
+    date: '13th June 2024',
+    name: 'Flea Market (The Saga)',
+    location: 'Jaipur',
+  },
+  {
+    date: '4th July 2024',
+    name: 'Mamalola Pent House',
+    location: 'Hyderabad',
+  },
+  {
+    date: '15th August 2024',
+    name: '36 Downtown',
+    location: 'Chennai',
+  },
+];
 
 const partners = [
   {
@@ -152,6 +235,7 @@ onMounted(() => {
     const mergedItems = items.flat();
 
     initSmoothScroll();
+    [...self.selector!('.double')].forEach((el) => new DoubleImageEffect(el));
     scroll(columns, grid, mergedItems);
   }, gsapWrapper.value);
 });
@@ -174,11 +258,40 @@ onUnmounted(() => {
         class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent to-background"
       />
     </Section>
-    <Section id="artists">
-      <template #heading>Featured Artists</template>
+    <Section id="events" inner-class="p-4">
+      <template #heading>Events Calendar</template>
+      <Calendar />
+      <AccordionRoot
+        class="flex flex-col gap-y-2 bg-background mt-4"
+        type="multiple"
+        :collapsible="true"
+      >
+        <Event
+          :date="event.date"
+          :index="index"
+          :location="event.location"
+          :name="event.name"
+          v-for="(event, index) in events"
+        />
+      </AccordionRoot>
     </Section>
-    <Section id="events">
-      <template #heading>Upcoming Events</template>
+    <Section id="artists" inner-class="p-4">
+      <template #heading>Featured Artists</template>
+      <div
+        class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-6"
+      >
+        <div
+          class="flex flex-col border border-muted"
+          v-for="artist in artists"
+        >
+          <div
+            class="double"
+            data-effect="1"
+            :style="{ backgroundImage: `url(${artist.image})` }"
+          ></div>
+          <h3 class="font-bold p-2">{{ artist.name }}</h3>
+        </div>
+      </div>
     </Section>
     <Section id="gallery" inner-class="p-4 overflow-hidden">
       <template #heading>Gallery</template>
@@ -286,7 +399,23 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
+.double {
+  display: grid;
+  aspect-ratio: 0.75;
+  position: relative;
+  overflow: hidden;
+  counter-increment: section;
+}
+
+.double__img {
+  grid-area: 1 / 1 / -1 / -1;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .columns {
   --grid-item-translate: 30px;
 }
