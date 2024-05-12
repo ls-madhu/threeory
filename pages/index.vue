@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import DoubleImageEffect from '~/utils/double-image-effect';
 
@@ -162,7 +162,9 @@ const partners = [
   },
 ];
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const initSmoothScroll = () => {
   const lenis = new Lenis();
